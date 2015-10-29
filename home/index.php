@@ -1,5 +1,7 @@
 <?
 require_once 'config.php';
+
+//
 $base_search_url = generate_base_search_url();
 //
 
