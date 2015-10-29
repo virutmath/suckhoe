@@ -1,7 +1,7 @@
 <?
 require_once 'config.php';
 $base_search_url = generate_base_search_url();
-
+//
 
 $page_title = t('Trang thông tin y tế, sức khỏe cộng đồng');
 //list category
@@ -45,7 +45,7 @@ $facebook_og = '
 <meta property="fb:app_id" content="1561038610796934" />
 <meta property="og:image" content="'.DOMAIN_URL.'/themes/pc/img/logo1.png"/>
 <meta property="og:site_name" content="Khang.vn"/>
-<meta property="og:description" content="Cẩm nang sức khỏe, dinh dưỡng cho gia đìn, cộng đồng và xã hội">
+<meta property="og:description" content="Cẩm nang sức khỏe, dinh dưỡng cho gia đình, cộng đồng và xã hội">
 <meta property="og:updated_time" content="'.time().'">';
 $rainTpl->assign('facebook_og',$facebook_og);
 $rainTpl->draw('index');
