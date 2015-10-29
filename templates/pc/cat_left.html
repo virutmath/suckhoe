@@ -1,0 +1,90 @@
+<div class="news-slide-top">
+    <div class="news-slide-viewer pull-left">
+        {$tpl_constant['loading_image']}
+        <a href="#">
+            <img src="" alt="Loadding..." class="hidden"/>
+        </a>
+        <h1 id="home-h1" class="hidden"></h1>
+    </div>
+    <div class="news-slide-listing pull-left">
+        <h4 class="text-muted">
+            <div class="margin-50b"></div>
+            <em>Chuyên mục</em>
+            <b><span class="color-base">{$detail_data['cat_name']}</span></b>
+        </h4>
+        <ul>
+            {loop="$news_release"}
+            <li data-link="{$value.link_detail}" data-img="{$value.new_picture}" data-title="{$value.new_title}">
+                <span class="caret-control-slide"></span>
+                <a href="{$value.link_detail}">
+                    <span class="fa fa-square color-base"></span>
+                    <h3>{$value.new_title}</h3>
+                </a>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="category-list-news">
+    {if="$iPage > 1"}
+    <div class="h4">Trang {$iPage}</div>
+    {/if}
+    <div class="category-top-list-left">
+        {loop="$top_list_left"}
+        <div class="cat-list-news-item">
+            <div class="imgthumb">
+                <a href="{$value.link_detail}">
+                    <img src="{$value.new_picture}" alt="{$value.new_title}"/>
+                </a>
+            </div>
+            <div class="item-info">
+                <h3><a href="{$value.link_detail}">{$value.new_title}</a></h3>
+                <em class="string-time">{$value.new_date}</em>
+                <p>{$value.new_teaser}</p>
+            </div>
+        </div>
+        {/loop}
+    </div>
+    <div class="category-top-list-right">
+        <span class="box-title">Tin hot</span>
+        <ul>
+            {loop="$top_list_right"}
+            <li>
+                <a href="{$value.link_detail}">
+                    <span class="fa fa-square color-base"></span>
+                    <h3>{$value.new_title}</h3>
+                </a>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+    {loop="$category_list_news"}
+    <div class="cat-list-news-item">
+        <div class="imgthumb">
+            <a href="{$value.link_detail}">
+                <img src="{$value.new_picture}" alt="{$value.new_title}"/>
+            </a>
+        </div>
+        <div class="item-info">
+            <h3><a href="{$value.link_detail}">{$value.new_title}</a></h3>
+            <em class="string-time">{$value.new_date}</em>
+            <p>{$value.new_teaser}</p>
+        </div>
+    </div>
+    {/loop}
+</div>
+<div id="cat-load-more">
+    <input type="hidden" id="current_page" value="{$iPage}"/>
+    <input type="hidden" id="base_url" value="{$detail_data['link_cat']}"/>
+    <a href="{$detail_data['link_cat_next']}"
+       data-pjax=".category-list-news"
+       data-pjax-params="{$pjax_params_base64}"
+       data-pjax-append="true"
+       data-pjax-scroll="false"
+       onclick="generate_page()"
+       id="cat-load-more-btn"
+       class="color-base text-uppercase">Xem thêm tin cùng chuyên mục <i class="fa fa-angle-down"></i></a>
+</div>
+

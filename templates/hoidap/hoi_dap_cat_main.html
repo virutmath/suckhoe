@@ -1,0 +1,22 @@
+<h1>Hỏi đáp về <b class="color-base">{$cat_name}</b> mới nhất tại Khang.vn</h1>
+{include="paging_order_hoidap"}
+<div class="list-question">
+    <ul class="list-unstyled">
+        {loop="$list_hoidap"}
+        <li>
+            {if="$value.que_image"}
+            <div class="imgthumb pull-left">
+                <a href="{$value.link_detail}" title="{$value.que_title}"><img src="{$value.que_image}" alt="{$value.que_title}" width="106" height="80"/></a>
+            </div>
+            {/if}
+            <div class="que-info">
+                <h3><a href="{$value.link_detail}" title="{$value.que_title}">{$value.que_title}</a></h3>
+                <time datetime="{$value.que_date}">{$value.que_date_str}</time>
+                <p>{$value.que_question_content}</p>
+                <span class="read-more pull-right"><a href="{$value.link_detail}" title="{$value.que_title}">Xem tiếp</a></span>
+            </div>
+        </li>
+        {/loop}
+    </ul>
+</div>
+{include="paging_order_hoidap"}

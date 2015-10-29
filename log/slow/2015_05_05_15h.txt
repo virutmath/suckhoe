@@ -1,0 +1,9 @@
+Thoi gian : 15:10 : --------------------------------------------->0.8965780735 :  SELECT new_id,
+                                     new_title,
+                                     new_picture,
+                                     new_date,
+                                     new_view
+                              FROM news 
+                              WHERE new_active = 1 AND new_cat_id = 0
+                              ORDER BY new_date DESC
+                              LIMIT 3

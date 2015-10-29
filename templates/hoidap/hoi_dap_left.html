@@ -1,0 +1,41 @@
+<div class="hoidap-left">
+    <div id="disease-filter">
+        <div class="list-filter">
+            <div class="filter-section">
+                <div class="filter-name text-uppercase text-thin">
+                    <b>Danh mục</b>
+                </div>
+                <ul class="list-unstyled">
+                    {loop="$list_category_hoidap"}
+                    <li>
+                        <label>
+                            <a href="{$value.link_cat}">
+                                {if="$value.is_checked == 'checked'"}
+                                <b class="checked">{$value.cat_name}</b>
+                                {else}
+                                <b>{$value.cat_name}</b>
+                                {/if}
+                            </a>
+                        </label>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="widget-section-left">
+        <div id="easycare">
+            <script type="text/javascript">
+                var maJsHost = "http://easycare.vn/";
+                var maJsKey = "";
+                var maJsWidth = "";
+                var maJsHeight = "";
+                document.write(
+                        unescape(
+                                '%3Cscript src="'+maJsHost+'assets/easycare_frontend/js/widget.js" type="text/javascript"%3E%3C/script%3E'
+                        )
+                );
+            </script>
+        </div>
+    </div>
+</div>

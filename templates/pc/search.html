@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-language" content="vi"/>
+    <meta name="description" content="{$meta_description}"/>
+    <meta name="keyword" content="{$meta_keyword}"/>
+    {$tpl_constants['css_global']}
+    {$tpl_constants['js_global']}
+    <title>{$page_title}</title>
+
+</head>
+<body>
+<div id="header">
+    {include="header"}
+</div>
+<div id="wrapper">
+    <div class="wrapper-main">
+        <div class="left-search-column pull-left">
+            <strong>Lọc kết quả</strong>
+            <ul class="list-filter-search list-unstyled">
+                <li><a href="#">Tất cả</a></li>
+                <li><a href="#">Bệnh lý, triệu chứng</a></li>
+                <li><a href="#">Thuốc</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li><a href="#">Hỏi đáp tư vấn</a></li>
+            </ul>
+        </div>
+        <div class="right-search-column pull-left">
+            {if="$match_thuoc"}
+            <span>Kết quả tìm được {$count_thuoc} thuốc <strong>{$keyword_thuoc}</strong></span>
+            {loop="$list_thuoc_match"}
+            <div class="pharma-item">
+                <a href="{$value.link_detail}">
+                    <img src="{$value.pha_image}" alt="{$value.pha_title}" class="image_thumbnail"/>
+                    <h3>
+                        {$value.pha_name}
+                    </h3>
+                </a>
+            </div>
+            {/loop}
+            {/if}
+        </div>
+    </div>
+</div>
+{include="footer"}
+</body>
+</html>

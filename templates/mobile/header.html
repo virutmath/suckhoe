@@ -1,0 +1,63 @@
+<script type="text/javascript">global_page = {$tpl_constants['global_page']}</script>
+<div id="header_menu">
+    <div class="header" id="header">
+        <ul class="h-menu clearfix list-unstyled">
+            <li>
+                <a href="/" class="h-menu-link logo_main">
+                    <h4 title="Tin tức, giải trí - xã hội  trên di động"><span class="khang-logo"></span></h4>
+                </a>
+            </li>
+            <li>
+                <a href="/release" class="h-menu-link tinmoi menu-size">
+                    <div id="menu-new" class="clearfix">
+                        <span class="fa fa-file-text-o"></span>
+                        <span class="menu-name">Mới</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a rel="nofollow" class="h-menu-link search" href="/" actionsearch="open">
+                    <span class="fa fa-search"></span>
+                    <span class="menu-name">Tìm kiếm</span>
+                </a>
+            </li>
+            <li>
+                <a rel="nofollow" id="expand_tab" href="javascript:void(0)" class="h-menu-link expand_tab" action="open">
+                    <span class="fa fa-bars"></span>
+                    <span class="menu-name">Mở rộng</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="sub-menu-expand">
+    <ul class="menu-tabs clearfix">
+        <li id="menu-news" class="active">
+            Tin tức
+        </li>
+        <li id="menu-hoidap">
+            Hỏi đáp
+        </li>
+        <li id="menu-thuoc">
+            Thuốc
+        </li>
+    </ul>
+    <div id="sub-menu-content">
+        <ul id="category-news" class="active">
+            {loop="$category_news"}
+            <li><a href="{$value.link_cat}">{$value.cat_name}</a></li>
+            {/loop}
+        </ul>
+        <ul id="category-hoidap">
+            <li><a href="/hoidap">Tất cả</a></li>
+            {loop="$category_hoidap"}
+            <li><a href="{$value.link_cat}">{$value.cat_name}</a></li>
+            {/loop}
+        </ul>
+        <ul id="category-thuoc">
+            {loop="$category_thuoc"}
+            <li><a href="{$value.link_cat}">{$value.cat_name}</a></li>
+            {/loop}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Nhớ : Sắp xếp các module theo thứ tự ABC-->
+<mapping>
+    <modules>
+        <module name="catAnatomy" path="ajax/cat_anatomy"></module>
+        <module name="searchManifest" path="ajax/search_manifest"></module>
+        <module name="checkUnique" path="ajax/check_unique_field"></module>
+        <module name="getDropdownCatChild" path="ajax/get_dropdown_category_child"></module>
+        <module name="getListAttribute" path="ajax/get_list_attribute"></module>
+        <module name="logImageError" path="ajax/log_image_error"></module>
+        <module name="sidebarAnatomy" path="ajax/sidebar_anatomy"></module>
+    </modules>
+</mapping>

@@ -1,0 +1,142 @@
+<div class="pharma-menu">
+      {include="pharma_menu"}
+</div>
+<div class="detail-pharma">
+	<h2>{$pha_item['pha_name']}</h2>
+	<div class="top-pharma">
+		<div class="image-wrapper">
+			<img src="{$pha_item['pha_image']}" alt='Pharma product'>
+		</div>
+		<div class="center-wrapper">
+			<ul>
+				
+				<li class='title'><strong>{$pha_item['pha_title']}</strong></li>
+				<li>
+					{if="$pha_item['pha_nha_sx_name'] != ''"}
+					<p>Nhà sản xuất: <strong>{$pha_item['pha_nha_sx_name']}</strong></p>
+					{/if}
+					<p>Cửa hàng: <strong>Còn hàng</strong></p>
+				</li>
+				<li>
+					<p>Gọi điện đặt hàng: <strong> (0350)36.31.668</strong></p>
+					<p>Giờ làm việc: <strong>(7:00 - 22:00 mỗi ngày)</strong></p>
+				</li>
+				<li class='contact'>Giá: liên hệ</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom-pharma">
+		<div class="header-bpharma">
+			<ul>
+				<li class='ref1 active'>Chỉ định thuốc</li>
+				<li class='ref2'>Hướng dẫn sử dụng</li>
+                <li class='ref3'>Thông tin khác</li>
+			</ul>
+			<div class="reference-wrapper">
+					<div class="reference onActive" id='reference1'>
+                        <div class='chidinh'>
+                            <h3>Chỉ định thuốc</h3>
+                            <div class="chidinh-content">
+                                {$pha_item['pha_chi_dinh']}
+                            </div>
+                        </div>
+                        {if="$pha_item['pha_chong_chi_dinh'] != ''"}
+                        <div class='chongchidinh'>
+                            <h3>Chống chỉ định thuốc</h3>
+                            <div class="chongchidinh-content">
+                                {$pha_item['pha_chong_chi_dinh']}
+                            </div>
+                        </div>
+                        {/if}
+					</div>
+					<div class="reference" id='reference2'>
+						{if="$pha_item['pha_lieu_luong'] != ''"}
+                        <h3>Liều dùng</h3>
+                            <div class="lieuluong">
+                                {$pha_item['pha_lieu_luong']}
+                            </div>
+                        {/if}
+                        {if="$pha_item['pha_tuong_tac_thuoc'] != ''"}
+                        <h3>Tương tác thuốc</h3>
+                        <div class="tuongtacthuoc">
+                            {$pha_item['pha_thuong_tac_thuoc']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_tac_dung_phu'] != ''"}
+                        <h3>Tác dụng phụ</h3>
+                        <div class="tacdungphu">
+                            {$pha_item['pha_tac_dung_phu']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_chu_y_de_phong'] != ''"}
+                        <h3>Chú ý đề phòng</h3>
+                        <div class="chuydephong">
+                            {$pha_item['pha_chu_y_de_phong']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_bao_quan'] != ''"}
+                        <h3>Bảo quản</h3>
+                        <div class="baoquan">
+                            {$pha_item['pha_bao_quan']}
+                        </div>
+                        {/if}
+					</div>
+                    <div class="reference" id='reference3'>
+                        {if="$pha_item['pha_so_dang_ky'] != ''"}
+                        <h3>Số đăng ký</h3>
+                        <div class="sodangky">
+                            {$pha_item['pha_so_dang_ky']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_dang_bao_che'] != ''"}
+                        <h3>Dạng bào chế</h3>
+                        <div class="dangbaoche">
+                            {$pha_item['pha_dang_bao_che']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_dong_goi'] != ''"}
+                        <h3>Đóng gói</h3>
+                        <div class="donggoi">
+                            {$pha_item['pha_dong_goi']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_thanh_phan'] != ''"}
+                        <h3>Thành phần</h3>
+                        <div class="donggoi">
+                            {$pha_item['pha_thanh_phan']}
+                        </div>
+                        {/if}
+                        {if="$pha_item['pha_ham_luong'] != ''"}
+                        <h3>Hàm lượng</h3>
+                        <div class="donggoi">
+                            {$pha_item['pha_ham_luong']}
+                        </div>
+                        {/if}
+                    </div>
+			</div>
+			
+		</div>
+	</div>
+    {if="$list_relation != ''"}
+	<div class="relation-pharmas">
+		<div class="header">
+			<h2>Sản phẩm liên quan</h2>
+			<p>Tìm thấy <span class='pnumber'>{$count_list_relation}</span> sản phẩm</p>
+		</div>
+        <div class="wrapper-np">
+            <div class="items-wrapper">
+                {loop="$list_relation"}
+                <li>
+                    <div class="item">
+                        <a href='{$value.linkSeo}'><img src="{$value.pha_image}" alt='Parma 1'></a>
+                        <a href='{$value.linkSeo}'><p>{$value.pha_name}</p></a>
+                        <span class='price'>Giá: liên hệ</span>
+                        <span class='new'></span>
+                    </div>
+                </li>
+                {/loop}
+            </div>
+        </div>
+	</div>
+    {/if}
+</div>

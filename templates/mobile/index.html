@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+{include="head"}
+<body>
+    <div class="wrapper">
+        {include="header"}
+        <div id="content" class="main-container ov">
+            <div id="wrapper_ct">
+                <div class="home-main-wrapper">
+                    <div class="featured">
+                        {loop="$list_featured"}
+                        <a href="{$value.link_detail}" class="fp-news">
+                            <span class="fix_pos">
+                                <img data-src="{$value.new_picture}" src="{$value.new_picture_low}" alt="{$value.new_title}" class="fp-thumbnail" />
+                            </span>
+                            <h2 class="fp-title">{$value.new_title}</h2>
+                        </a>
+                        {/loop}
+                    </div>
+                    <div class="hot-posts">
+                        <ul class="hp-list clearfix text-center list-unstyled">
+                            {loop="$list_hot"}
+                            <li>
+                                <a class="hp-news" href="{$value.link_detail}" title="{$value.new_title}">
+                                    <span class="fix_pos">
+                                        <img data-src="{$value.new_picture}" src="{$value.new_picture_low}" alt="{$value.new_title}" class="hp-thumbnail" />
+                                    </span>
+                                    <h2 class="hp-title">{$value.new_title}</h2>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    <script type="text/javascript">fix_title_height();</script>
+                    {if="$list_hot_day"}
+                    <div class="hot-news">
+                        <h3 class="cate-title">tiêu điểm trong ngày</h3>
+                        <ul class="hot-news-list clearfix">
+                            {loop="$list_hot_day"}
+                            <li>
+                                <a href="{$value.link_detail}" class="hot-news-title" title="{$value.new_title}"><h3>{$value.new_title}</h3></a>
+                            </li>
+                            {/loop}
+                        </ul>
+                    </div>
+                    {/if}
+                    {loop="$list_news_cat"}
+                    <div class="cate-type">
+                        <a href="{$value.link_cat}" title="{$value.cat_name}">
+                            <h2 class="cate-title">{$value.cat_name} <span class="more-arrow"></span></h2>
+                        </a>
+                        {if="$value.first_news"}
+                        <div class="top-list">
+                            <a class="fecate" href="{$value.first_news['link_detail']}">
+                                <img class="fecate-thumbnail" data-src="{$value.first_news['new_picture']}" src="{$value.first_news['new_picture_low']}" alt="{$value.first_news['new_title']}" />
+                                <h3 class="fecate-title">{$value.first_news['new_title']}</h3>
+                            </a>
+                        </div>
+                        {/if}
+                        {if="$value.list_news"}
+                        <ul class="cate-list clearfix" role="sub-list">
+                            {loop="$value.list_news"}
+                            <li>
+                                <a class="cate-title" href="{$value.link_detail}">
+                                    <h4>{$value.new_title}</h4>
+                                </a>
+                            </li>
+                            {/loop}
+                        </ul>
+
+                        {/if}
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        {include="footer"}
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+# BEGIN Compress text files
+<IfModule mod_deflate.c>
+  <FilesMatch ".(css|js|x?html?|php)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+# END Compress text files
+# BEGIN Expire headers
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType image/x-icon "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType application/x-shockwave-flash "access plus 2592000 seconds"
+  ExpiresByType text/css "access plus 604800 seconds"
+  ExpiresByType text/javascript "access plus 216000 seconds"
+  ExpiresByType application/javascript "access plus 216000 seconds"
+  ExpiresByType application/x-javascript "access plus 216000 seconds"
+  ExpiresByType text/html "access plus 600 seconds"
+  ExpiresByType application/xhtml+xml "access plus 600 seconds"
+</IfModule>
+# END Expire headers
+# BEGIN Cache-Control Headers
+<IfModule mod_headers.c>
+  <FilesMatch ".(ico|jpe?g|png|gif|swf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch ".(css)$">
+    Header set Cache-Control "max-age=604800, public"
+  </FilesMatch>
+  <FilesMatch ".(js)$">
+    Header set Cache-Control "max-age=216000, private"
+  </FilesMatch>
+  <FilesMatch ".(x?html?|php)$">
+    Header set Cache-Control "max-age=600, private, must-revalidate"
+  </FilesMatch>
+</IfModule>
+# END Cache-Control Headers
+# BEGIN Turn ETags Off
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+FileETag None
+# END Turn ETags Off
+# BEGIN Remove Last-Modified Header
+<IfModule mod_headers.c>
+  Header unset Last-Modified
+</IfModule>
+# END Remove Last-Modified Header
+
+ErrorDocument 404 /404.php
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^home(\/?)$                                                             index.php
+RewriteRule ^release(\/?)$                                                          release_news.php
+RewriteRule ^hoidap(\/?)$                                                           hoidap/index.php
+RewriteRule ^hoidap/([a-zA-Z\-^/]*)/([^/]*)-([0-9]*).html$                          hoidap/detail.php?que_id=$3
+RewriteRule ^hoidap/([a-zA-Z\-^/]*)-([0-9]*).html$                                  hoidap/index.php?cat_id=$2&%{QUERY_STRING}
+RewriteRule ^([a-z\-^/]*)/([^/]*)-([0-9]*).html$                                    news_detail.php?record_id=$3
+RewriteRule ^([a-z\-]*)-([0-9]*).html$                                              cat.php?record_id=$2&%{QUERY_STRING}
+
+RewriteRule ^ajax(\/?)$                                                             ajax/loadAjax.php
+RewriteRule ^ajax/([a-zA-Z0-9]*)(\/?)$                                              ajax/loadAjax.php?name=$1&%{QUERY_STRING}

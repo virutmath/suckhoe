@@ -1,0 +1,34 @@
+{if="$sec_data['sec_desc']"}
+<div class="anatomy-detail-header"><em class="text-info"><i class="fa fa-quote-left"></i> {$sec_data['sec_desc']} <i class="fa fa-quote-right"></i></em></div>
+<div class="margin-10b"></div>
+{/if}
+{if="$sec_data['list_sec_child']"}
+<span class="text-uppercase color-base">Bạn đang gặp vấn đề ở đâu?</span>
+<ul class="list-inline list-section-child">
+    {loop="$sec_data['list_sec_child']"}
+    <li><h3><a href="{$value.link_detail}" >{$value.sec_name}</a></h3></li>
+    {/loop}
+</ul>
+<div class="margin-10b"></div>
+{/if}
+
+<div class="list-section-disease">
+    <span class="text-uppercase color-base">Các bệnh thường gặp</span>
+    <ul class="list-inline list-section-child">
+        {loop="$sec_data['list_sec_disease']"}
+        <li><h3><a href="{$value.link_detail}" >{$value.cdi_name}</a></h3></li>
+        {/loop}
+    </ul>
+</div>
+<div class="margin-10b"></div>
+
+<div class="list-section-disease">
+    <span class="text-uppercase color-base">Triệu chứng thường gặp</span>
+    <ul class="list-inline list-section-child">
+        {loop="$sec_data['list_sec_manifest']"}
+        <li><h3><a href="{$value.link_detail}">{$value.man_name}</a></h3></li>
+        {/loop}
+    </ul>
+</div>
+<div class="margin-10b"></div>
+<button class="popup-close btn btn-default" onclick="close_popup_anatomy()">Đóng</button>

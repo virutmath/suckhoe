@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Nhớ : Sắp xếp các module theo thứ tự ABC-->
+<mapping>
+    <modules>
+        <module name="getMoreHoidap" path="ajax/get_more_hoidap"></module>
+        <module name="getMoreNews" path="ajax/get_more_news"></module>
+    </modules>
+</mapping>

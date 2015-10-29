@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+{include="head"}
+<body>
+<div class="wrapper">
+    {include="header"}
+    <div id="content" class="main-container ov">
+        <div id="wrapper_ct">
+            <div class="detail-main-wrapper">
+                <div class="listmenu">
+                    <a href="#">
+                        <h1 class="post-breadcrumb">
+                            {$cat_data['cat_name']}
+                        </h1>
+                    </a>
+                    <span class="post-time">{$tpl_constants['string_time']}</span>
+                </div>
+                {if="$top_list"}
+                <div role="top-list">
+                    <a class="fecate" href="{$top_list['link_detail']}" title="{$top_list['new_title']}">
+                        <img class="fecate-thumbnail" src="{$top_list['new_picture_low']}" data-src="{$top_list['new_picture']}" alt="{$top_list['new_title']}"/>
+                        <h2 class="fecate-title">{$top_list['new_title']}</h2>
+                        <input type="hidden" name="sapo" value="{$top_list['new_teaser']}">
+                    </a>
+                </div>
+                {/if}
+                {if="$list_news"}
+                <ul class="cate-hots clearfix" role="sub-list" id="list-news">
+                    {loop="$list_news"}
+                    <li>
+                        <a class="catehot" href="{$value.link_detail}" title="{$value.new_title}">
+                            <img class="catehot-thumbnail" src="{$value.new_picture_low}" alt="{$value.new_title}" data-src="{$value.new_picture}"/>
+                            <h2 class="catehot-title">{$value['new_title']}</h2>
+                            <p class="catehot-sapo">{$value.new_teaser}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+                {/if}
+                <div id="loading" class="text-center" style="display: none;"><i class="fa fa-spinner fa-pulse fa-2x fa-fw margin-bottom"></i></div>
+                <a id="view_more" class="view_more" href="javascript:void(0)" rel="nofollow" onclick="loadMoreItem({$cat_data['cat_id']})">Xem thêm</a>
+            </div>
+        </div>
+    </div>
+    {include="footer"}
+</div>
+</body>
+</html>

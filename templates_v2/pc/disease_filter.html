@@ -1,0 +1,82 @@
+<div id="disease-filter">
+    <h1>Bắt bệnh</h1>
+    <div class="list-filter">
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <i class="fa fa-filter color-base"></i> <b>Đối tượng</b>
+            </div>
+            <ul class="list-unstyled">
+                {loop="$filter_doituong"}
+                <li>
+                    <label>
+                        <input type="checkbox" value="{$key}" name="filter_doituong"/>
+                        <b>{$value}</b>
+                    </label>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <i class="fa fa-filter color-base"></i> <b>Độ tuổi</b>
+            </div>
+            <ul class="list-unstyled">
+                {loop="$filter_dotuoi"}
+                <li>
+                    <label>
+                        <input type="checkbox" value="{$key}" name="filter_dotuoi"/>
+                        <b>{$value}</b>
+                    </label>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <i class="fa fa-filter color-base"></i> <b>Bệnh theo mùa</b>
+            </div>
+            <ul class="list-unstyled">
+                {loop="$filter_theomua"}
+                <li>
+                    <label>
+                        <input type="checkbox" value="{$key}" name="filter_theomua"/>
+                        <b>{$value}</b>
+                    </label>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <i class="fa fa-filter color-base"></i> <b>Hệ cơ quan</b>
+            </div>
+            <ul class="list-unstyled">
+                {loop="$filter_hecoquan"}
+                <li>
+                    <label>
+                        <input type="checkbox" value="{$key}" name="filter_hecoquan"/>
+                        <b>{$value}</b>
+                    </label>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <i class="fa fa-filter color-base"></i> <b>Bệnh truyền nhiễm</b>
+            </div>
+            <ul class="list-unstyled">
+                <li>
+                    <label>
+                        <input type="checkbox" value="1" name="filter_truyennhiem"/>
+                        <b>Truyền nhiễm</b>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

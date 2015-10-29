@@ -1,0 +1,31 @@
+<div class="pharma-menu">
+    {include="pharma_menu"}
+</div>
+<div class="main">
+
+    <div class="catproducts">
+        <div class="header">
+            <h2>{$row_cat['cat_name']}</h2>
+            <p>Tìm thấy <span class='pnumber'>{$count_cat_product}</span> sản phẩm</p>
+        </div>
+        {if="$count_cat_product !=  0"}
+        {include="paging_order_tuthuoc"}
+        <div class="wrapper-np">
+            <div class="items-wrapper">
+                {loop="$list_cat_thuoc"}
+                <li>
+                    <div class="item">
+                        <a href='{$value.linkSeo}'><img src="{$value.pha_image}" alt='Parma 1'></a>
+                        <a href='{$value.linkSeo}'><p>{$value.pha_name}</p></a>
+                        <span class='price'>Giá: liên hệ</span>
+                        <span class='new'></span>
+                    </div>
+                </li>
+                {/loop}
+            </div>
+        </div>
+        {include="paging_order_tuthuoc"}
+        {/if}
+    </div>
+
+</div>

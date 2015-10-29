@@ -1,0 +1,28 @@
+  	<div class="pharma-menu">
+      {include="pharma_menu"}
+    </div>
+    <div class="main">
+        {include="paging_order_tuthuoc"}
+  		<div class="newproducts">
+  			<div class="header">
+  				<h2>Sản phẩm mới</h2>
+  				<p>Tìm thấy <span class='pnumber'>{$count_new}</span> sản phẩm</p>
+  			</div>
+        
+  			<div class="wrapper-np">
+    				<div class="items-wrapper">
+            {loop="$list_new_thuoc"}
+    					<li>
+    						<div class="item">
+    							<a href='{$value.linkSeo}'><img src="{$value.pha_image}" alt='Parma 1'></a>
+    							<a href='{$value.linkSeo}'><p>{$value.pha_name}</p></a>
+    							<span class='price'>Giá: liên hệ</span>
+    							<span class='new'></span>
+    						</div>
+    					</li>
+            {/loop} 
+    				</div>
+  			</div>
+  		</div>
+        {include="paging_order_tuthuoc"}
+  	</div>

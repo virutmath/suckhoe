@@ -1,0 +1,20 @@
+<div class="main-cat-top">
+    <span class="breadcrumb-link">
+        <a href="javascript:;" class="text-muted">
+            Trang chủ
+        </a>
+    </span>
+    <span class="text-muted">&bull;</span>
+    <span class="breadcrumb-link" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="{$detail_data['link_cat']}" itemprop="url" class="text-muted">
+            <span itemprop="title">{$detail_data['cat_name']}</span>
+        </a>
+    </span>
+    <span class="text-muted">&bull;</span>
+    <span class="breadcrumb-link" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="{$detail_data['link_detail']}" itemprop="url">
+            <span itemprop="title">{$detail_data['new_title']}</span>
+        </a>
+    </span>
+    <em class="string-time pull-right">{$tpl_constants['string_time']}</em>
+</div>

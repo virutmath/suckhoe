@@ -1,0 +1,34 @@
+<h1>{$detail_data['new_title']}</h1>
+<em class="text-muted">{$detail_data['new_date']}</em>
+<br/>
+<p><strong>{$detail_data['new_teaser']}</strong></p>
+<br/>
+{$detail_data['new_detail']}
+<br/>
+<div class="clearfix"></div>
+<div class="margin-10b"></div>
+<div id="adv_bottom">
+    <a href="{$adv_bottom['adv_link']}" target="_blank"><img src="{$adv_bottom['adv_image']}" alt="{$adv_bottom['adv_link']}"/></a>
+</div>
+<div class="margin-10b"></div>
+<div class="facebook-detail">
+    {$detail_data['facebook_social']['like']}
+    <div class="clearfix"></div>
+    <div class="margin-10b"></div>
+    <span class="h3">Ý kiến bạn đọc (<fb:comments-count href="{$detail_data['facebook_share_link']}"></fb:comments-count>)</span>
+    <div class="clearfix"></div>
+    {$detail_data['facebook_social']['comment']}
+</div>
+<div class="cat-news-other">
+    <h3>Tin cùng chuyên mục</h3>
+    <ul class="list-inline">
+        {loop="$cat_list_news"}
+        <li>
+            <img src="{$value.new_picture}" alt="{$value.new_title}"/>
+            <h3 class="h3-title">
+                <a href="{$value.link_detail}">{$value.new_title}</a>
+            </h3>
+        </li>
+        {/loop}
+    </ul>
+</div>

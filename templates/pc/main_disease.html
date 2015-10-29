@@ -1,0 +1,81 @@
+<div class="main-disease-top">
+    <span class="breadcrumb-link">
+        <a href="javascript:;" class="text-muted">
+            <i class="fa fa-home"></i>
+        </a>
+    </span>
+    <span class="text-muted">&bull;</span>
+    <span class="breadcrumb-link" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="" itemprop="url">
+            <span itemprop="title">Bắt bệnh</span>
+        </a>
+    </span>
+</div>
+<div class="main-disease-content">
+    <h2><em>Bạn đang gặp vấn đề ở đâu?</em></h2>
+    <div class="anatomy-disease">
+        <div class="control-anatomy">
+            <div class="ana-image-sex">
+                <span class="fa fa-female {$sex_female_active}" onclick="load_anatomy_image('female')"></span>
+                <span class="fa fa-male {$sex_male_active}" onclick="load_anatomy_image('male')"></span>
+                <input type="hidden" id="map-anatomy-sex" value="{$anatomy_sex_str}">
+            </div>
+            <div class="ana-image-view pull-left">
+                <span class="ana-image-view-front {$front_active}" onclick="load_anatomy_image('front')">Chính diện</span>
+                <span class="ana-image-view-back {$back_active}" onclick="load_anatomy_image('back')">Đằng sau</span>
+                <input type="hidden" id="map-anatomy-view" value="front">
+            </div>
+        </div>
+        <div class="img-anatomy">
+            {include="anatomy_image"}
+        </div>
+        <div class="load-anatomy-detail">
+            <div class="list-section">
+                <ul class="list-unstyled">
+                    <li>
+                        <h3 class="h5 text-uppercase">
+                            <a href="{$list_section['link_detail']}" data-pjax="#wrapper">
+                                <strong>
+                                    {if="$list_section['is_active']"}
+                                    <ins>{$list_section['sec_name']}</ins>
+                                    {else}
+                                    {$list_section['sec_name']}
+                                    {/if}
+                                </strong>
+                            </a>
+                        </h3>
+                    </li>
+                    {loop="$list_section['sec_child']"}
+                    <li>
+                        <h3 class="h6">
+                            <span class="fa fa-square"></span>
+                            <a href="{$value.link_detail}" class="color-base" data-pjax="#wrapper">
+                                {if="$value.is_active"}
+                                <ins>{$value.sec_name}</ins>
+                                {else}
+                                {$value.sec_name}
+                                {/if}
+                            </a>
+                        </h3>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="section-cat-detail">
+                {if="$sec_desc"}
+                <div class="section-group-desc"><em>{$sec_desc}</em></div>
+                <span class="sec-desc-expand" onclick="section_description_expand()"></span>
+                {/if}
+                <div class="margin-20b"></div>
+                <h5 class="text-uppercase text-bold text-thin">Các bệnh thường gặp về <span class="color-base">{$sec_name}</span></h5>
+                <div class="list-disease-popular">
+                    {loop="$list_disease"}
+                    <a href="{$value.link_detail}" data-pjax="#wrapper">
+                        <span class="disease-name">{$value.cdi_name}</span>
+                    </a>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

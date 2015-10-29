@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+{include="head"}
+<body>
+<div class="wrapper">
+    {include="header"}
+    <div id="content" class="main-container ov">
+        <div id="wrapper_ct">
+            <div class="detail-main-wrapper">
+                <div class="listmenu">
+                    <a href="#">
+                        <h1 class="post-breadcrumb">
+                            {$question_data['cat_name']}
+                        </h1>
+                    </a>
+                    <span class="post-time">{$question_data['post_time']}</span>
+                </div>
+                <div class="main-content">
+                    <div class="post-content" id="question-detail-{$question_data['new_id']}">
+                        <h1 class="post-title">{$question_data['que_title']}</h1>
+                        <h2 class="post-sapo">{$question_data['full_question_content']}</h2>
+                        <div class="content" id="detailmain">
+                            {$question_data['que_answer_content']}
+                        </div>
+                    </div>
+                </div>
+                {if="$list_cat_news"}
+                <span class="cate-title">hỏi đáp cùng chuyên mục</span>
+                <ul class="cate-hots clearfix" role="sub-list" id="list-news">
+                    {loop="$list_cat_news"}
+                    <li>
+                        <a class="catehot" href="{$value.link_detail}" title="{$value.que_title}">
+                            <img class="catehot-thumbnail" src="{$value.que_image_low}" alt="{$value.que_title}" data-src="{$value.que_image}"/>
+                            <h2 class="catehot-title">{$value['que_title']}</h2>
+                            <p class="catehot-sapo">{$value.que_question_content}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+                {/if}
+                {if="$list_hot_day"}
+                <div class="hot-news">
+                    <h3 class="cate-title">có thể bạn quan tâm</h3>
+                    <ul class="hot-news-list clearfix">
+                        {loop="$list_hot_day"}
+                        <li>
+                            <a href="{$value.link_detail}" class="hot-question-title" title="{$value.que_title}"><h3>{$value.que_title}</h3></a>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+    {include="footer"}
+</div>
+</body>
+</html>

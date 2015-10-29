@@ -1,0 +1,6 @@
+<img src="{$anatomy_data['image']}" alt="" usemap="#Map"  class="mapper"/>
+<map name="Map" id="Map">
+    {loop="$anatomy_data['data']"}
+    <area alt="{$value.ana_alt}" title="{$value.ana_title}" data-id="{$value.ana_id}" data-link-detail="{$value.link_detail}" href="#" onclick="anatomy_human_show(this);return false;" id="map_female_{$value.ana_id}" shape="poly" coords="{$value.ana_coords}" />
+    {/loop}
+</map>

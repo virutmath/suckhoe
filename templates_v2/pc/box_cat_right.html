@@ -1,0 +1,24 @@
+<div class="box-cat-right">
+    <h3 class="text-uppercase"><a href="{$box_cat_right['link_cat']}">{$box_cat_right['cat_name']}</a></h3>
+    <ul class="list-unstyled">
+        {loop="$box_cat_right['array_news']"}
+        {if="$value['is_first']"}
+        <li>
+            <div class="thumb">
+                <img src="{$value.new_picture}" alt="{$value.new_title}"/>
+            </div>
+            <h3><a href="{$value.link_detail}"><b>{$value.new_title}</b></a></h3>
+        </li>
+        {else}
+        <li>
+            <h3>
+                <a href="{$value.link_detail}">
+                    <span class="fa fa-square color-base"></span>
+                    <div class="box-title">{$value.new_title}</div>
+                </a>
+            </h3>
+        </li>
+        {/if}
+        {/loop}
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+ErrorDocument 404 /404error.php
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule startRecorder$  /admin/resources/js/recorder/temp/record.php
+RewriteRule playRecorder$   /admin/resources/js/recorder/temp/output.wav
+RewriteRule startRecorderWoman$  /admin/resources/js/recorder/temp/record_woman.php
+RewriteRule playRecorderWoman$   /admin/resources/js/recorder/temp/output_woman.wav

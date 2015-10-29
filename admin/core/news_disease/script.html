@@ -1,0 +1,67 @@
+<script>
+    $('#ndi_title').blur(function(){
+        var title = $(this);
+        var teaser = $('#ndi_teaser');
+        var picture = $('#ndi_picture');
+        var view_picture = $('#view_picture');
+        var detail = $('#ndi_detail');
+        if(!check_url(title.val())){
+            console.log(false);
+            return true;
+        }
+        $.ajax({
+            type : 'post',
+            url : 'ajax.php',
+            data : {action : 'load_news_url',url : title.val()},
+            dataType : 'json',
+            success : function(resp){
+                if(resp.success){
+                    title.val(resp.title);
+                    teaser.val(resp.teaser);
+                    tinyMCE.get('ndi_detail').setContent(resp.content);
+                    if(resp.picture){
+                        picture.val(resp.picture);
+                        view_picture.attr('src',resp.link_picture);
+                        //gán biến đánh dấu ảnh được load từ url
+                        $('#get_from_link').val(1);
+                    }
+                }else{
+                    error_show(resp.error,'#ndi_title');
+                    $('#get_from_link').val(0);
+                }
+            },
+            beforeSend : function () {
+
+            }
+        })
+    });
+    //add thêm danh mục
+    $('#add-cat').click(function(){
+        var wrapper = $('#wrap-add-cat');
+        var clone = $('#levelcate1').clone();
+        clone.removeAttributes(null);
+        clone.attr({
+            'onchange':'loadCategory(this)',
+            'class' : 'form-control'
+        });
+        var clone2 = $('#ndi_cat_id').clone();
+        clone2.removeAttributes(null,['name']);
+        clone2.attr({
+            'class' : 'form-control category-child'
+        });
+        var count_row = $('.row-category').length + 1;
+        wrapper.append('<div class="row row-category margin-15b" id="row-category-'+count_row+'"></div>');
+        $('#row-category-'+count_row).append(clone).append(clone2).find('select').wrap('<div class="col-xs-3"></div>');
+    });
+    function loadCategory(a){
+        var destination = $(a).closest('.row-category').find('.category-child');
+        $.ajax({
+            type : 'post',
+            data : {value : $(a).val(),action : 'loadCatChild'},
+            url : 'ajax.php',
+            success : function (html) {
+                destination.html(html);
+            }
+        })
+    }
+</script>

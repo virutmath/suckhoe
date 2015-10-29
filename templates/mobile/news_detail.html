@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+{include="head"}
+<body>
+<div class="wrapper">
+    {include="header"}
+    <div id="content" class="main-container ov">
+        <div id="wrapper_ct">
+            <div class="detail-main-wrapper">
+                <div class="listmenu">
+                    <a href="#">
+                        <h1 class="post-breadcrumb">
+                            {$news_data['cat_name']}
+                        </h1>
+                    </a>
+                    <span class="post-time">{$news_data['post_time']}</span>
+                </div>
+                <div class="main-content">
+                    <div class="post-content" id="news-detail-{$news_data['new_id']}">
+                        <h1 class="post-title">{$news_data['new_title']}</h1>
+                        <h2 class="post-sapo">{$news_data['full_teaser']}</h2>
+                        <div class="content" id="detailmain">
+                            {$news_data['ndt_content']}
+                        </div>
+                    </div>
+                </div>
+                {if="$list_cat_news"}
+                <span class="cate-title">tin cùng chuyên mục</span>
+                <ul class="cate-hots clearfix" role="sub-list" id="list-news">
+                    {loop="$list_cat_news"}
+                    <li>
+                        <a class="catehot" href="{$value.link_detail}" title="{$value.new_title}">
+                            <img class="catehot-thumbnail" src="{$value.new_picture_low}" alt="{$value.new_title}" data-src="{$value.new_picture}"/>
+                            <h2 class="catehot-title">{$value['new_title']}</h2>
+                            <p class="catehot-sapo">{$value.new_teaser}</p>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+                {/if}
+                {if="$list_hot_day"}
+                <div class="hot-news">
+                    <h3 class="cate-title">tiêu điểm trong ngày</h3>
+                    <ul class="hot-news-list clearfix">
+                        {loop="$list_hot_day"}
+                        <li>
+                            <a href="{$value.link_detail}" class="hot-news-title" title="{$value.new_title}"><h3>{$value.new_title}</h3></a>
+                        </li>
+                        {/loop}
+                    </ul>
+                </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+    {include="footer"}
+</div>
+</body>
+</html>

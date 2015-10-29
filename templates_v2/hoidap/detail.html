@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="content-language" content="vi"/>
+    <meta name="description" content="{$meta_description}"/>
+    <meta name="keyword" content="{$meta_keyword}"/>
+    {$facebook_og}
+    {$tpl_constants['css_global']}
+    {$tpl_constants['js_global']}
+    <title>{$page_title}</title>
+</head>
+<body>
+<div id="header">
+    {include="header"}
+</div>
+<div id="wrapper">
+    <div id="adv_top" style="padding : 10px 10px 0 10px;">
+        <a href="{$adv_top['adv_link']}" target="_blank"><img src="{$adv_top['adv_image']}" alt="{$adv_top['adv_link']}" width="100%"/></a>
+    </div>
+    <div class="wrapper-main" id="hoi-dap-page">
+        {include="hoidap_detail_breadcrumb"}
+        <div class="main-content-left pull-left">
+            <span class="pull-left">Câu hỏi:</span>
+            <small class="datetime pull-right text-muted"><em>{$detail_data['que_date']}</em></small>
+            <div class="clearfix"></div>
+            <h1 class="question-title">{$detail_data['que_title']}</h1>
+            <p class="question-content">
+                {$detail_data['que_question_content']}
+                <br>
+                ({$detail_data['que_username']})
+            </p>
+
+            <div class="answer-content pull-left">
+                <div class="professor color-base">{$detail_data['que_professional']}</div>
+                <br/>
+                {$detail_data['que_answer_content']}
+            </div>
+            <div id="easycare" style="width: 220px;margin-left: -10px;float:left">
+                <script type="text/javascript">
+                    var maJsHost = "http://easycare.vn/";
+                    var maJsKey = "";
+                    var maJsWidth = "";
+                    var maJsHeight = "";
+                    document.write(
+                            unescape(
+                                    '%3Cscript src="'+maJsHost+'assets/easycare_frontend/js/widget.js" type="text/javascript"%3E%3C/script%3E'
+                            )
+                    );
+                </script>
+            </div>
+            <div class="list-question-cat pull-left">
+                <span class="h5">Hỏi đáp cùng chuyên mục</span>
+                <ul class="list-unstyled">
+                    {loop="$list_question_cat"}
+                    <li>
+                        <a href="{$value.link_detail}">{$value.que_title}</a>
+                        <small class="time color-base">{$value.que_date}</small>
+                    </li>
+                    {/loop}
+                </ul>
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="content-footer">
+                <span>Khang.vn - Nơi giải đáp những thắc mắc của bạn</span>
+                <div class="add-question-form pull-left">
+                    <button class="btn btn-color-base btn-xs" onclick="show_popup_question()">Gửi câu hỏi</button>
+                </div>
+                <div class="social-share pull-right">
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                </div>
+            </div>
+
+            <div class="detail-tags">
+                <span><i class="fa fa-tags"></i> Từ khóa:</span>
+                <ul class="list-inline">
+                    {loop="$detail_data['array_tag_search']"}
+                    <li><a href="{$value.tag_link}"><small>{$value.tag_name}</small></a></li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            {$detail_data['facebook_social']['comment']}
+        </div>
+    </div>
+    {include="adv_large_banner"}
+</div>
+{include="footer"}
+</body>
+</html>

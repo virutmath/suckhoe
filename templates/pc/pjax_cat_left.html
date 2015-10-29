@@ -1,0 +1,14 @@
+{loop="$category_list_news"}
+<div class="cat-list-news-item">
+    <div class="imgthumb">
+        <a href="{$value.link_detail}">
+            <img src="{$value.new_picture}" alt="{$value.new_title}"/>
+        </a>
+    </div>
+    <div class="item-info">
+        <h3><a href="{$value.link_detail}">{$value.new_title}</a></h3>
+        <em class="string-time">{$value.new_date}</em>
+        <p>{$value.new_teaser}</p>
+    </div>
+</div>
+{/loop}

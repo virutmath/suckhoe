@@ -1,0 +1,20 @@
+<div id="disease-filter">
+    <div class="list-filter">
+        <div class="filter-section">
+            <div class="filter-name text-uppercase text-thin">
+                <b>Danh mục</b>
+            </div>
+            <ul class="list-unstyled">
+                {loop="$list_category_tuthuoc"}
+                <li>
+                    <label>
+                        <a href="{$value.link_cat}">
+                            <b>{$value.cat_name}</b>
+                        </a>
+                    </label>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+</div>

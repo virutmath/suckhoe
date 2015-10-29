@@ -1,0 +1,16 @@
+<script>
+    $('#search_man_id').autocomplete({
+        serviceUrl : 'auto_search_manifest.php',
+        onSelect : function(value, data){
+            var wrapper = $('#wrap-list-manifest');
+            if($('#que_man_list'+data.man_id).length){
+                return true;
+            }
+            wrapper.append('<div class="col-xs-3 alert alert-success margin-10b" role="alert" style="margin-right: 10px;">' +
+            '<input type="hidden" name="que_man_list[]" value="'+data.man_id+'" id="que_man_list'+data.man_id+'"/>' +
+            value.value+' <a href="#" class="close" data-dismiss="alert">&times;</a></div>');
+            //sau khi append thì clear input
+            $('#search_man_id').val('');
+        }
+    })
+</script>

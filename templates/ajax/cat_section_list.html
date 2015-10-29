@@ -1,0 +1,29 @@
+<ul class="list-unstyled">
+    <li>
+        <h3 class="h5 text-uppercase">
+            <a href="{$list_section['link_detail']}" data-pjax="#wrapper">
+                <strong>
+                    {if="$list_section['is_active']"}
+                    <ins>{$list_section['sec_name']}</ins>
+                    {else}
+                    {$list_section['sec_name']}
+                    {/if}
+                </strong>
+            </a>
+        </h3>
+    </li>
+    {loop="$list_section['sec_child']"}
+    <li>
+        <h3 class="h6">
+            <span class="fa fa-square"></span>
+            <a href="{$value.link_detail}" class="color-base" data-pjax="#wrapper">
+                {if="$value.is_active"}
+                <ins>{$value.sec_name}</ins>
+                {else}
+                {$value.sec_name}
+                {/if}
+            </a>
+        </h3>
+    </li>
+    {/loop}
+</ul>

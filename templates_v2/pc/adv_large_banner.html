@@ -1,0 +1,49 @@
+<div class="adv_large_banner">
+    {loop="$adv_banner_list"}
+    <a href="{$value.adv_link}" target="_blank"><img src="{$value.adv_image}" alt="{$value.adv_name}" style="width:100%"/></a>
+    {/loop}
+</div>
+<script>
+    //fix khối banner ad
+    $(function(){
+        var windowHeight = $(window).height();
+        var bannerItem = $('.adv_large_banner');
+        var footerPage = $('#footer');
+        var footerPos = 0;
+        var bannerHeight = 0;
+        var bannerWidth = 0;
+        var bannerPos = 0;
+        var scrollPos;
+        $(document).scroll(function(e){
+            if(!footerPos){
+                footerPos = footerPage.offset().top;
+            }
+            if(!bannerWidth){
+                bannerWidth = bannerItem.width();
+            }
+            if(!bannerPos) {
+                bannerPos = bannerItem.offset().top;
+            }
+            if(!bannerHeight) {
+                bannerHeight = bannerItem.height();
+            }
+            scrollPos = $(window).scrollTop();
+            if(scrollPos > bannerPos && scrollPos < footerPos - bannerHeight){
+                bannerItem.css({
+                    position : 'fixed',
+                    top : 0,
+                    width : bannerWidth + 20
+                });
+            }else if(scrollPos >= footerPos - bannerHeight) {
+                bannerItem.css({
+                    position : 'absolute',
+                    top : footerPos - bannerHeight - 20
+                })
+            }else{
+                bannerItem.removeAttr('style');
+            }
+
+        })
+    })
+
+</script>

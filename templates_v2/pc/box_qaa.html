@@ -1,0 +1,25 @@
+<div id="qaa-sidebar">
+    <div class="list-tab">
+        <span>Hỏi đáp</span>
+        <a href="{$link_hoidap}" class="tab-more-qaa">Xem toàn bộ &raquo;</a>
+        <i class="caret"></i>
+    </div>
+    <div class="clearfix"></div>
+    <div class="qaa-disease">
+        <ul class="list-inline">
+            {loop="$list_qaa_sidebar['list_disease']"}
+            <li>
+                <a href="{$value.link_detail}">{$value.cdi_name}</a>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+    <ul class="list-qaa-sidebar list-unstyled">
+        {loop="$list_qaa_sidebar['list_qaa']"}
+        <li class="col-xs-4">
+            <span class="fa fa-square color-base"></span>
+            <h3><a href="{$value.link_detail}">{$value.que_title}</a></h3>
+        </li>
+        {/loop}
+    </ul>
+</div>

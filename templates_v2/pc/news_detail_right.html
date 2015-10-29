@@ -1,0 +1,57 @@
+<div id="catch-disease">
+    <h3><a href="{$link_catch_disease}" data-pjax="#wrapper">Bắt bệnh</a></h3>
+    <span class="text-muted">Các bệnh thường gặp</span>
+    <div id="sidebar-anatomy-control">
+        <div class="pull-left">
+            <div class="ana-image-sex">
+                <span class="fa fa-female {$sex_female_active}" onclick="load_anatomy_image('female')"></span>
+                <span class="fa fa-male {$sex_male_active}" onclick="load_anatomy_image('male')"></span>
+                <input type="hidden" id="map-anatomy-sex" value="male"/>
+            </div>
+        </div>
+        <div class="pull-right">
+            <div class="ana-image-view">
+                <span class="ana-image-view-front active" onclick="load_anatomy_image('front')">Chính diện</span>
+                <span class="ana-image-view-back" onclick="load_anatomy_image('back')">Đằng sau</span>
+                <input type="hidden" id="map-anatomy-view" value="front"/>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar-anatomy-detail"></div>
+    <div id="home-anatomy">
+        {include="anatomy_image"}
+    </div>
+</div>
+<div class="margin-30b"></div>
+<div id="adv_right">
+    <a href="{$adv_right['adv_link']}" target="_blank"><img src="{$adv_right['adv_image']}" alt="{$adv_right['adv_link']}"/></a>
+</div>
+<div class="margin-30b"></div>
+<div id="list-news-suggest">
+    <div class="list-tab">
+        <span class="active" data-target="news-xem-nhieu">Xem nhiều</span>
+        <span  data-target="news-xem-random">Ngẫu nhiên</span>
+        <i class="caret"></i>
+    </div>
+    <div class="clearfix"></div>
+    <div class="margin-10b"></div>
+    <ul class="list-qaa-sidebar list-unstyled" id="news-xem-nhieu">
+        {loop="$news_xem_nhieu"}
+        <li>
+            <span class="fa fa-square color-base"></span>
+            <h3><a href="{$value.link_detail}">{$value.new_title}</a></h3>
+        </li>
+        {/loop}
+    </ul>
+    <ul class="list-qaa-sidebar list-unstyled hidden" id="news-xem-random">
+        {loop="$news_random"}
+        <li>
+            <span class="fa fa-square color-base"></span>
+            <h3><a href="{$value.link_detail}">{$value.new_title}</a></h3>
+        </li>
+        {/loop}
+    </ul>
+</div>
+<div id="ban-co-biet">
+    {include="box_cat_right"}
+</div>

@@ -1,0 +1,1 @@
+IP:::1Thoi gian : 10:26 /home/Loi o file : Loi query : (1046) No database selectedDatabase : suckhoeQuery : SELECT cat_id,cat_name FROM categories WHERE cat_type = 0//------------------------------------------------------------------------------------------------->

@@ -1,0 +1,20 @@
+/* CSS class common */
+.fl{float:left}
+.fr{float:right}
+.f13{font-size: 13px}
+.margin-5b{margin-bottom: 5px}
+.margin-10b{margin-bottom: 10px}
+.margin-15b{margin-bottom: 15px}
+.center{text-align:center}
+.hidden{visibility: hidden}
+.abs{position:absolute}
+.rlt{position:relative}
+.fix{position:fixed}
+.ov{overflow: hidden;height: 100%;}
+.bold{font-weight: bold;}
+.block{display:block}
+.align-right{text-align: right}
+.align-center{text-align: center}
+select,input{outline:none !important}
+img{max-width:100%}
+

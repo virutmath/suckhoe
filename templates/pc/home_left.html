@@ -1,0 +1,68 @@
+<div class="news-slide-top">
+    <div class="news-slide-viewer pull-left">
+        {$tpl_constants['loading_image']}
+        <a href="#">
+            <img src="" alt="Loadding..." class="hidden"/>
+        </a>
+        <h1 id="home-h1" class="hidden"></h1>
+    </div>
+    <div class="news-slide-listing pull-left">
+        <h4 class="text-muted">
+            <em>{$tpl_constants['string_wday']}</em>
+            <b>{$tpl_constants['string_date']}</b>
+        </h4>
+        <ul>
+            {loop="$news_release"}
+            <li data-link="{$value.link_detail}" data-img="{$value.new_picture}" data-title="{$value.new_title}">
+                <span class="caret-control-slide"></span>
+                <a href="{$value.link_detail}">
+                    <span class="fa fa-square color-base"></span>
+                    <h3>{$value.new_title}</h3>
+                </a>
+            </li>
+            {/loop}
+        </ul>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="list-hot-tsk">
+    <h3><a href="{$list_news_tsk['link_cat']}">{$list_news_tsk['cat_name']}</a></h3>
+    <ul class="list-inline">
+        {loop="$list_news_tsk['array_news']"}
+        <li>
+            <a href="{$value.link_detail}" title="{$value.new_title}"><img src="{$value.new_picture}" alt="{$value.new_title}"/></a>
+            <h3 class="h3-title">
+                <a href="{$value.link_detail}" title="{$value.new_title}">{$value.new_title}</a>
+            </h3>
+        </li>
+        {/loop}
+    </ul>
+</div><!-- Ket thuc phan tin tuc thoi su -->
+<div class="list-news-category">
+    {loop="$list_news_category"}
+    <div class="news-category-home">
+        <h3><a href="{$value.link_cat}">{$value.cat_name}</a></h3>
+        <ul>
+            {loop="$value.array_news"}
+            {if="$value.is_first"}
+            <li>
+                <div class="thumb">
+                    <a href="{$value.link_detail}" title="{$value.new_title}"><img src="{$value.new_picture}" alt="{$value.new_title}"/></a>
+                </div>
+                <a href="{$value.link_detail}" title="{$value.new_title}"><h3>{$value.new_title}</h3></a>
+            </li>
+            {else}
+            <li>
+                <a href="{$value.link_detail}">
+                    <span class="fa fa-square color-base"></span>
+                    <h3>
+                    {$value.new_title}
+                    </h3>
+                </a>
+            </li>
+            {/if}
+            {/loop}
+        </ul>
+    </div>
+    {/loop}
+</div>
